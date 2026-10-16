@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chess Game Analyzer</title>
+  <link rel="stylesheet" href="analyze.css">
+</head>
+<body>
+
+  <h1>♟ Chess Game Analyzer</h1>
+  <p class="subtitle">Paste a PGN or FEN below — format is auto-detected.</p>
+
+  <div class="card">
+    <textarea id="input" placeholder="Paste PGN or FEN here...&#10;&#10;Example PGN:&#10;[Event &quot;Test&quot;]&#10;[White &quot;Alice&quot;]&#10;[Black &quot;Bob&quot;]&#10;&#10;1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 ...&#10;&#10;Or a FEN like:&#10;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></textarea>
+
+    <div class="controls">
+      <span id="format">Format: —</span>
+      <button id="analyze-btn">Analyze</button>
+    </div>
+    <p id="status"></p>
+  </div>
+
+  <div id="results" style="display:none">
+
+    <div class="card">
+      <h2>Accuracy</h2>
+      <div class="accuracy-grid">
+        <div class="acc-box">
+          <div class="label">♔ White</div>
+          <div class="value" id="white-acc">—</div>
+          <div class="label" id="white-name"></div>
+        </div>
+        <div class="acc-box">
+          <div class="label">♚ Black</div>
+          <div class="value" id="black-acc">—</div>
+          <div class="label" id="black-name"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Move Breakdown</h2>
+      <table id="breakdown"></table>
+    </div>
+
+    <div class="card">
+      <h2>Opening</h2>
+      <p id="opening">—</p>
+    </div>
+
+    <div class="card">
+      <h2>Summary</h2>
+      <p id="summary">—</p>
+    </div>
+
+    <div class="card">
+      <h2>Eval Graph</h2>
+      <canvas id="eval-graph" width="760" height="140"></canvas>
+    </div>
+
+    <div class="card">
+      <h2>Moves</h2>
+      <div id="moves"></div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script src="analyze.js"></script>
+
+</body>
+</html>

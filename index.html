@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dev's Chess</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<h1 class="game-title">
+  <img src="images/variants.svg" alt="Black Pawn" class="title-icon">
+  Chess Game
+  <img src="images/variants.svg" alt="Black Rook" class="title-icon">
+</h1>
+
+
+  <div class="game-area">
+    <!-- Chessboard -->
+    <div class="board-wrap">
+      <div id="chessBoard" class="chess-board"></div>
+    </div>
+
+    <!-- Side panel -->
+    <div class="side-panel">
+      <div class="captured-box" id="capturedWhite">
+        <div class="captured-title">White Captured</div>
+        <div class="captured-row" id="whiteCapturedRow"></div>
+      </div>
+
+      <div class="captured-box" id="capturedBlack">
+        <div class="captured-title">Black Captured</div>
+        <div class="captured-row" id="blackCapturedRow"></div>
+      </div>
+
+      <div class="captured-box" id="moveHistory">
+        <div class="captured-title">Move History</div>
+        <div class="history-list" id="historyList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls below board -->
+  <div class="top-row below-board">
+    <div id="status" class="status">White's turn</div>
+    <div class="controls">
+      <button id="newGameBtn">New Game</button>
+      <button id="undoBtn">⏪</button>
+      <button id="redoBtn">⏩</button>
+      <button id="flipBoardBtn">Flip Board 🔄</button>
+      <button id="changeTurnBtn">Change Turn</button>
+      <button id="analyze-game-btn">Analyze Game</button>
+    </div>
+  </div>
+
+  <!-- Game result overlay -->
+  <div id="resultOverlay" class="overlay hidden">
+    <div id="resultCard" class="result-card">
+      <div id="resultText" class="result-text"></div>
+      <button id="restartBtn" class="restart-btn">New Game</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+  document.getElementById('analyze-game-btn').onclick = () => {
+    window.open('analyze.html', '_blank');
+  };
+</script>
+</body>
+</html>
